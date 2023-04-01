@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="./styles.css">
+    <title>FOURIER SYNTHESIZER</title>
+</head>
+<body>
+    <div class="container">
+        <input id="Fader1" type="range" min="0.0" max="1.0" step="0.01" value="1.0"  >
+        <input id="Fader2" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader3" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader4" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader5" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader6" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader7" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader8" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+        <input id="Fader9" type="range" min="0.0" max="1.0" step="0.01" value="0.0"  >
+    </div>
+    <input id="FaderFreq" type="range" min="20" max="5000" step="0.01" value="440" >
+    <button class="stop" onclick="PauseStream()" type="button" id="pauserbutton">Pause Synth</button>
+    <button class="start" onclick="StartStream()" type="button" id="starterbutton">Start Synth</button>
+    <div id="frequency_value" class="freq_value">440 Hz</div>
+    <p class="cap">PASCO MODEL WA-9307A EMULATOR</p>
+    <script src="./main.js"></script>
+</body>
+</html>
