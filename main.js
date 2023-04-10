@@ -112,12 +112,4 @@ function StartStream(){
 }
 
 
-playButton.addEventListener("click", ()=>{
-    StartStream();
-})
-
-pauseButton.addEventListener("click", ()=>{
-    PauseStream();
-})
-
 
