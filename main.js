@@ -104,6 +104,9 @@ function PauseStream(){
 }
 
 function StartStream(){
-    MainVolume.gain.value = 1
+    if (CTX.state == "suspended"){
+        CTX.state = "running";
+  
+    }
+    MainVolume.gain.value = 1;
 }
-
