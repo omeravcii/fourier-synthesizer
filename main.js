@@ -111,3 +111,13 @@ function StartStream(){
     MainVolume.gain.value = 1;
 }
 
+
+playButton.addEventListener("click", ()=>{
+    StartStream();
+})
+
+pauseButton.addEventListener("click", ()=>{
+    PauseStream();
+})
+
+
