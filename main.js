@@ -4,21 +4,11 @@ const imag = new Float32Array([0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]);
 
 // SIGNAL FLOW
 
-var CTX = new AudioContext();
-CTX.resume();
-
-var oscillator = CTX.createOscillator();
-var MainVolume = CTX.createGain();
-
-
-MainVolume.gain.value = 0
-
-var wave = CTX.createPeriodicWave(real,imag);
-oscillator.setPeriodicWave(wave);
-
-oscillator.connect(MainVolume);
-MainVolume.connect(CTX.destination);
-oscillator.start();
+var init = true;
+var CTX;
+var oscillator;
+var MainVolume;
+var wave;
 
 
 // BUTTONS AND FADERS 
@@ -100,16 +90,23 @@ FreqFader.addEventListener("input", (event)=>{
 })
 
 function PauseStream(){
-    MainVolume.gain.value = 0
+    MainVolume.gain.value = 0;
 }
 
 function StartStream(){
-    if (CTX.state === "suspended"){
+    if (init) {
+        CTX = new AudioContext();
+        oscillator = CTX.createOscillator();
+        MainVolume = CTX.createGain();
+        wave = CTX.createPeriodicWave(real,imag);
+        oscillator.setPeriodicWave(wave);
+
+        oscillator.connect(MainVolume);
+        MainVolume.connect(CTX.destination);
+        oscillator.start();
         CTX.resume();
-  
+        init = false;
     }
     MainVolume.gain.value = 1;
 }
-
-
 
